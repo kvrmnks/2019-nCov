@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>疫情可视化</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/dataCss.css">
+</head>
+<body id="index_body">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">武汉加油</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">主页</a></li>
+                <li class="active"><a href="#">图表</a></li>
+                <li><a href="datapage.html">数据</a></li>
+                <li><a href="aboutpage.html">关于</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>选择显示数据地区</h4> <br/>
+                <button class="button1" id='index_single_button' onclick="singleChooseMod()">单选模式</button>
+                <button class="button2" id='index_double_button' onclick="doubleChooseMod()">多选模式</button>
+                <button class="button3" id='index_inverse_button' onclick="inverseChooseMod()">反向选择模式</button>
+                <br/>
+                <h5>单选模式用于选择市级行政区划</h5>
+                <h5>多选模式和反向选择模式用于省级行政区划</h5>
+                <h5>反向选择模式用于选择要剔除的省级行政单位</h5>
+                <h4>当前选择</h4>
+                <p id="index_chooser">无</p>
+            </div>
+
+            <div class="panel-body">
+                <div class="container">
+                    <svg id='index_china_chart' height="700px" width="800px"></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="h4">选择省份</h4>
+            </div>
+            <div class="panel-body">
+                <div class="container" id="province_div">
+<!--                    <svg id="index_province_chart" height="700px" width="800px">
+
+                    </svg>-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <button class="button1" onclick="drawCharts()">绘图</button>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="h4">确诊人数</h4>
+            </div>
+            <div class="panel-body" id='index_confirmed_div'>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class='panel-heading'>
+                <h4 class="h4">确诊变化率</h4>
+            </div>
+            <div class="panel-body" id='index_confirmed_rate_div'>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="h4">治愈人数</h4>
+            </div>
+            <div class="panel-body" id='index_cured_div'>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="h4">治愈率</h4>
+            </div>
+            <div class="panel-body" id="index_cured_rate_div">
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="h4">死亡人数</h4>
+            </div>
+            <div class="panel-body" id='index_dead_div'>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="h4">死亡率</h4>
+            </div>
+            <div class="panel-body" id="index_dead_rate_div">
+
+            </div>
+        </div>
+    </div>
+    <footer class="panel-footer">
+        <div class="container-fluid">
+            <p align="center">Copyright © 2020 Kvrmnks</p>
+            <p align="center">不用于商业</p>
+        </div>
+    </footer>
+    <script src="js/dictionary.js"></script>
+    <script src="js/d3.v4.min.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/color.js"></script>
+    <script>
+        createChinaMap('#index_china_chart','./recourses/china.geoJson');
+    </script>
+</body>
+</html>

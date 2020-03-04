@@ -1,0 +1,33 @@
+create table city(
+provinceName varchar(100),
+cityName varchar(100),
+confirmedCount int,
+curedCount int,
+deadCount int,
+updateTime varchar(100),
+id varchar(100),
+primary key (id),
+index city_index (cityName,updateTime)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table province(
+provinceName varchar(100),
+confirmedCount int,
+curedCount int,
+deadCount int,
+updateTime varchar(100),
+id varchar(100),
+primary key (id),
+index province_index (provinceName ,updateTime)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table nation(
+confirmedCount varchar(100),
+suspectedCount varchar(100),
+curedCount varchar(100),
+deadCount varchar(100),
+seriousCount varchar(100),
+updateTime varchar(100),
+primary key (updateTime),
+index nation_index(updateTime)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;

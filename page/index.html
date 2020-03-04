@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>疫情可视化</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/dataCss.css">
+</head>
+<body id="index_body">
+    <nav class="navbar navbar-inverse">
+        <div class="container container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">武汉加油</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">主页</a></li>
+                <li><a href="chart.html">图表</a></li>
+                <li><a href="datapage.html">数据</a></li>
+                <li><a href="aboutpage.html">关于</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="h3" id="headline"> 数据请求失败</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">确诊病例</th>
+                        <th class="text-center">现存确诊病例</th>
+                        <th class="text-center">死亡病例</th>
+                        <th class="text-center">治愈病例</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="cur">
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">新增确诊病例</th>
+                        <th class="text-center">新增现存确诊病例</th>
+                        <th class="text-center">新增死亡病例</th>
+                        <th class="text-center">新增治愈病例</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id="before">
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="h3"> 选择模式 </h3>
+            </div>
+            <div class="panel-body">
+                <button class="button1" onclick="confirmlize()">确诊病例</button>
+                <button class="button2" onclick="remainlize()">现存病例</button>
+                <br/>
+                <h4 class="h4">当前选择</h4>
+                <h5 class="h5" id="index_choose">确诊病例</h5>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="h3">全国分布图</h3>
+            </div>
+            <div class="panel-body" >
+                <svg id='svg' height="700px" width="800px"></svg>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="province_headline">
+                <h3 class="h3" id="final_headline"></h3>
+            </div>
+            <div class="panel-body" id="province_body">
+
+            </div>
+        </div>
+    </div>
+    <script src="js/d3.v4.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
