@@ -67,7 +67,7 @@ function _drawCountChart(div,arg) {
     let g = svg.append('g');
     svg.selectAll('circle').data(DataMap).enter()
         .append('circle')
-        .attr('r','7px')
+        .attr('r','6px')
         .attr('fill','red')
         .attr('cy',d=>20+yScale(d[arg]))
         .attr('cx',d=>60+xScale(d.updateTime))
@@ -107,7 +107,7 @@ function _drawRateChart(div,arg){
         .data(DataMap)
         .enter()
         .append('circle')
-        .attr('r','7px')
+        .attr('r','6px')
         .attr('fill','red')
         .attr('cy',d=>20+yScale(parseFloat(d[arg])/parseFloat(d.confirmedCount)))
         .attr('cx',d=>60+xScale(d.updateTime))
@@ -160,7 +160,7 @@ function _drawSpeedChart(div,arg) {
     svg.append('g').append('path').attr('d',_line(_data)).attr('fill','none').attr('stroke','black');
     svg.selectAll('circle').data(_data).enter()
         .append('circle')
-        .attr('r','7px')
+        .attr('r','6px')
         .attr('fill','red')
         .attr('cy',d=>20+yScale(parseFloat(d[arg])))
         .attr('cx',d=>60+xScale(d.updateTime))
@@ -469,8 +469,8 @@ function createProvinceMap (TMD,map) {
             if(x < minX) minX = x; if(y < minY) minY = y;
             if(x1 > maxX) maxX = x1; if(y1 > maxY) maxY = y1;
         });
-        minX -= 125;
-        minY -= 125;
+        minX -= 50;
+        minY -= 50;
         d3.select(TMD).selectAll('g').attr('transform','translate('+(-minX)+','+(-minY)+')')
             .selectAll('text').data(data.features)
             .enter()

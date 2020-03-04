@@ -149,7 +149,7 @@ function createChinaMap(TMD,map){
                 let name = d.properties.name;
                 let curData = 0;
                 let curDeath = 0;
-                let curCured = 0;v
+                let curCured = 0;
                 for(let i in provinceData){
                     if(proCN[i] == name){
                             curData = parseInt(provinceData[i][0].confirmedCount);
@@ -246,8 +246,8 @@ function createProvinceMap (TMD,map) {
             if(x < minX) minX = x; if(y < minY) minY = y;
             if(x1 > maxX) maxX = x1; if(y1 > maxY) maxY = y1;
         });
-        minX -= 125;
-        minY -= 125;
+        minX -= 50;
+        minY -= 50;
         d3.select(TMD).selectAll('g').attr('transform','translate('+(-minX)+','+(-minY)+')')
             .selectAll('text').data(data.features)
             .enter()
