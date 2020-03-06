@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script src='./js/d3.v4.min.js'></script>
+        <script>
+            d3.csv("nCov_china_0303.csv", function(error, csvdata) {
+                   // console.log(csvdata);
+                    function DATA(pName, datas) {
+                        this.pName = pName;
+                        this.datas = datas;
+                    }
+                    // var pName = [];
+                    var pConfirmedCount = [];
+                    var pCuredCount = [];
+                    var pDiedCount = [];
+
+                    //输出csv内容
+                    var i = csvdata.length - 1
+                    while (csvdata[i].日期 == "2020-03-02") {
+                        i--;
+                        var datas = new DATA(csvdata[i].省, Number(csvdata[i].省确诊));
+                        pConfirmedCount.push(datas);
+                        datas = new DATA(csvdata[i].省 + "", Number(csvdata[i].省治愈));
+                        pCuredCount.push(datas);
+                        var datas = new DATA(csvdata[i].省, Number(csvdata[i].省死亡));
+                        pDiedCount.push(datas);
+                        console.log(pCuredCount[0].pName);
+                       // alert(pCuredCount[0].name);
+                    }
+            });
+        </script>
+    </body>
+</html>
